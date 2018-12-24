@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+
   def new
     @article = Article.new
   end
@@ -18,15 +20,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:notice] = "Article successfully updated"
       redirect_to @article
@@ -36,7 +35,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     flash[:notice] = "Article '#{@article.title}' successfully deleted"
 
@@ -44,6 +42,9 @@ class ArticlesController < ApplicationController
   end
 
   private
+    def set_article
+      @article = Article.find(params[:id])
+    end
   # Using a private method to encapsulate the permissible parameters
   # is just a good pattern since you'll be able to reuse the same
   # permit list between create and update. Also, you can specialize
