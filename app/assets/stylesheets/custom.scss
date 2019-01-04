@@ -1,0 +1,7 @@
+// Override bootstrap default colors
+
+$theme-colors: (
+  "light": aliceblue
+);
+
+@import "bootstrap"

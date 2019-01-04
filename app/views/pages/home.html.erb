@@ -1,4 +1,13 @@
-<h1>Welcome to the my Blog! Feel free to navigate around my home.</h1>
-
-<%= link_to 'View Articles', articles_path %> <%= link_to 'Create New Article', new_article_path %>
-
+<div class="container-fluid main-content">
+    <% @articles.each do |article| %>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-8 mx-auto">
+          <h4><%= article.title %></h4>
+          <p><%= truncate(article.description, length: 140, separator: ' ') %></p>
+        </div>
+        <div class="col"></div>
+      </div>
+    <% end %>
+  </div>
+</div>
