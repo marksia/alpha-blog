@@ -2,9 +2,14 @@
     <% @articles.each do |article| %>
       <div class="row">
         <div class="col"></div>
-        <div class="col-8 mx-auto">
+        <div class="col-8 mx-auto article-item">
           <h4><%= article.title %></h4>
           <p><%= truncate(article.description, length: 140, separator: ' ') %></p>
+          <div class="article-created-at">
+            <small>
+              Created: <%= article.created_at.strftime('%d/%m/%Y') %>
+            </small>
+          </div>
         </div>
         <div class="col"></div>
       </div>
