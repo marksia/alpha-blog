@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# bcrypt
+gem 'bcrypt', '~> 3.1.7'
+
 #Bootstrap 4
 gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
